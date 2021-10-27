@@ -1,0 +1,35 @@
+<h1>Halaman Contact</h1>
+<a
+  href="/contact/add"
+  class="btn btn-primary btn-lg active mb-2"
+  role="button"
+  aria-pressed="true"
+  >Tambah Data</a
+>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Nama</th>
+      <th scope="col">No Hp</th>
+      <th scope="col">Email</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% contacts.forEach(c => { %>
+    <tr>
+      <td><%= c.nama %></td>
+      <td><%= c.nohp %></td>
+      <td><%= c.email %></td>
+      <td>
+        <a href="/contact/edit/<%= c._id %>" class="btn btn-success badge"
+          >Edit</a
+        >
+        <a href="/contact/delete/<%= c._id %>" class="btn btn-danger badge"
+          >Delete</a
+        >
+      </td>
+    </tr>
+    <% }) %>
+  </tbody>
+</table>
