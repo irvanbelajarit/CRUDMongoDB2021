@@ -1,6 +1,9 @@
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://127.0.0.1:27017/crud_untar2021");
+mongoose.connect("mongodb://127.0.0.1:27017/crud_untar2021", {
+  useUnifiedTopology: true,
+  useNewUrlParser: true,
+});
 
 // //tambah data
 // const contact1 = new Contact({

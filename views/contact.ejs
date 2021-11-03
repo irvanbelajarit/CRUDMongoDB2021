@@ -6,6 +6,19 @@
   aria-pressed="true"
   >Tambah Data</a
 >
+
+<% if (msg.length !== 0) { %>
+  <div class="alert alert-primary alert-dismissible fade show" role="alert">
+   
+    <strong><%= msg %> </strong>
+    
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+<% } %>
+
+
 <table class="table table-striped">
   <thead>
     <tr>
@@ -25,9 +38,15 @@
         <a href="/contact/edit/<%= c._id %>" class="btn btn-success badge"
           >Edit</a
         >
-        <a href="/contact/delete/<%= c._id %>" class="btn btn-danger badge"
+        <!-- <a href="/contact/delete/<%= c._id %>" class="btn btn-danger badge"
           >Delete</a
-        >
+        > -->
+
+        <form action="/contact?_method=DELETE" method="post" class="d-inline">
+        <input type="hidden" name="id" value="<%= c._id %>">
+        <button type="submit" class="btn btn-danger badge" onclick="return confirm('Yakin Akan Dihapus ?')">delete</button>
+        </form>
+
       </td>
     </tr>
     <% }) %>
